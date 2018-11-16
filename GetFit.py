@@ -10,7 +10,7 @@ def hello():
 
 @app.route('/anketa')
 def anketa():
-    return 'Tell us about you and we will match you with the team!'\
+    return render_template('page1.html')\
 
 @app.route('/selecting')
 def selecting():
