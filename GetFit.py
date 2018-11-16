@@ -1,10 +1,12 @@
 from flask import Flask
+from flask import render_template
+
 
 app = Flask(__name__)\
 
 @app.route('/')
 def hello():
-    return 'Hello and welcome to the app Get Fit!'\
+    return render_template('page0.html')\
 
 @app.route('/anketa')
 def anketa():
