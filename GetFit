@@ -1,0 +1,20 @@
+from flask import Flask
+
+app = Flask(__name__)\
+
+@app.route('/')
+def hello():
+    return 'Hello and welcome to the app Get Fit!'\
+
+@app.route('/anketa')
+def anketa():
+    return 'Tell us about you and we will match you with the team!'\
+
+@app.route('/selecting')
+def selecting():
+    return 'Wait a second: we are selecting the participants for your team!'
+
+if __name__== '__main__':
+    app.run()
+
+
