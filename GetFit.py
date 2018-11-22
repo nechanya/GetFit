@@ -4,15 +4,15 @@ from flask import render_template
 app = Flask(__name__)\
 
 @app.route('/')
-def hello():
+def first():
     return render_template('page_getfit.html')
 
 @app.route('/menu')
-def hello():
+def second():
     return render_template('get_fit_menu.html')
 
 @app.route('/user/<username>')
-def user_page (username):
+def user_page(username):
     return render_template('page_getfit.html', user=username)
 
 @app.route('/diary')
@@ -21,7 +21,7 @@ def diary():
 
 @app.route('/anketa')
 def anketa():
-    return 'Tell us about you and we will match you with the team!'\
+    return 'Tell us about you and we will match you with the team!'
 
 @app.route('/selecting')
 def selecting():
