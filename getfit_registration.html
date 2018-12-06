@@ -1,18 +1,19 @@
-<!doctype html>
+<!DOCTYPE HTML >
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link href="cover.css" rel="stylesheet">
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <title>Регистрация на GetFit</title>
+    <link href="https://getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Sign up on GetFit</title>
     <style>
         body {
-            background: #c7b39b url(https://assets.vancouverisawesome.com/wp-content/uploads/2017/12/31113259/shutterstock_749969473.jpg);
-            color: #fff;
+            background: #c7b39b url(https://images.pexels.com/photos/1199607/pexels-photo-1199607.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+            color: #3c3f41;
             background-size:cover;
+            text-align: center;
 
         }
 
@@ -41,96 +42,112 @@
         #content {
             z-index:1;
         }
+        .container {
+            width: auto;
+            max-width: 680px;
+            padding: 0 15px;
+        }
+
     </style>
 
 
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
-
-
-    <link href="form-validation.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/4.1/examples/checkout/form-validation.css" rel="stylesheet">
 </head>
 
 <body class="text-center">
-<main role="main" class="container">
 
-
+<main>
 <div class="container">
-    <div class="py-5 text-center">
-
-        <h2 class="text-dark">Регистрация на GetFit</h2>
-        <p class="text-dark">Заполни анкету, чтобы мы смогли подобрать тебе лучшую команду</p>
-    </div>
-
-        </div>
-        <div class="text-center">
+    <div class="row">
+        <div class="col-lg-12">
             <div class="text-dark">
+                    <h2 >Sign up on GetFit</h2>
 
-            <form class="form-signin">
-                <div class="row">
-                    <div class="col-lg-9">
-                        <label for="firstName">First name</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="firstName" value="" required>
+                    <p >Fill this survey to create an account.</p>
+                </div>
+
+                <form class="form-signin ">
+
+
+                    <div class="col-lg-12">
+                        <label for="first_name">First name</label>
+                        <input type="text" class="form-control" id="first_name" placeholder="firstName" >
 
                     </div>
-                    <div class="col-lg-9">
-                        <label for="lastName">Last name</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="lastName" value="" required>
+                    <div class="col-lg-12">
+                        <label for="last_name">Last name</label>
+                        <input type="text" class="form-control" id="last_name" placeholder="lastName" >
 
                     </div>
-                </div>
 
-                <div class="col-lg-9">
-                    <label for="username">Username</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"> </span>
-                        </div>
-                        <input type="text" class="form-control" id="username" placeholder="Username" required>
-                        <div class="invalid-feedback" style="width: 100%;">
-                            Your username is required.
-                        </div>
+
+                <div class="col-lg-12">
+
+                    <label for="login">Username (login)</label>
+                    <input type="text" class="form-control" id="login" placeholder="Username (login)" >
                     </div>
+
+
+                <div class="col-lg-12">
+                    <label for="password">Password</label>
+                    <input type="text" class="form-control" id="password" placeholder="Password" >
                 </div>
 
-                <div class="col-lg-9">
-                    <label for="email">Email </label>
-                    <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                <div class="col-lg-12">
+                    <label for="sex">Sex</label>
+                    <select class="form-control" id="sex">
+                        <option>woman</option>
+                        <option>man</option>
 
+                    </select>
                 </div>
 
-                <div class="col-lg-9">
-                    <label for="address">City</label>
-                    <input type="text" class="form-control" id="city" >
+                <div class="col-lg-12">
+                    <label for="city">City</label>
+                    <input type="text" class="form-control" id="city" placeholder="city">
 
                 </div>
-                <div class="col-lg-9">
-                    <label for="address">Weight</label>
-                    <input type="text" class="form-control" id="weight" >
-
-                </div>
-
-                <div class="col-lg-9">
-                    <label for="address">Height</label>
-                    <input type="text" class="form-control" id="height" >
-
-                </div>
-
-                <div class="col-lg-9">
-                    <label for="address">Age</label>
-                    <input type="text" class="form-control" id="age" >
-
-                </div>
-        </div>
-                <hr class="col-lg-9">
+                <div class="col-lg-12">
+                    <label for="weight">Weight</label>
+                    <input type="text" class="form-control" id="weight" placeholder="weight now">
 
                 </div>
 
-                <hr class="col-lg-9">
-<a href="http://127.0.0.1:5000/diary" class="btn btn-danger">Личная страница</a>
+                <div class="col-lg-12">
+                    <label for="desired_weight">Desired Weight</label>
+                    <input type="text" class="form-control" id="desired_weight" placeholder="Desired weight">
+
+                </div>
+
+                <div class="col-lg-12">
+                    <label for="Height">Height</label>
+                    <input type="text" class="form-control" id="height" placeholder="Height">
+
+                </div>
+
+                <div class="col-lg-12">
+                    <label for="age">Age</label>
+                    <input type="text" class="form-control" id="age" placeholder="Age">
+
+                </div>
+
+                <hr class="col-lg-12">
+
+                </div>
+            </div>
+                <hr class="col-lg-12">
+
+<a href="http://127.0.0.1:5000/personal" class="btn btn-primary">Done</a>
             </form>
-    </div>
+
+
+        </div>
         </div>
     </div>
 
-</main>>
-</div>
+
+
+</main>
+
+</center>
+</body>
