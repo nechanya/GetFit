@@ -96,7 +96,8 @@ for user in users:
     c.execute("INSERT INTO info_about_users"
               "(login, password, first_name, last_name, sex, city, weight_now, desired_weight, height, age)"
               "VALUES "
-              "('{login}','{password}','{first_name}','{last_name}','{sex}','{city}','{weight_now}','{desired_weight}','{height}','{age}')".format(**user))
+              "('{login}','{password}','{first_name}','{last_name}','{sex}','{city}','{weight_now}','{desired_weight}','{height}','{age}')"
+              "".format(**user))
 
     conn.commit()
 
