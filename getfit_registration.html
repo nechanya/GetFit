@@ -55,6 +55,11 @@
 </head>
 
 <body class="text-center">
+{% if user_created %}
+    <div class="alert alert-success">User Created</div>
+{% elif error_message=="user_exists" %}
+    <div class="alert alert-danger">User with this login already exists</div>
+{%endif%}
 
 <main>
 <div class="container">
@@ -66,7 +71,7 @@
                     <p >Fill this survey to create an account.</p>
                 </div>
 
-                <form class="form-signin ">
+                <form class="form-signin" method="post" action="/new_user">
 
 
                     <div class="col-lg-12">
@@ -108,8 +113,8 @@
 
                 </div>
                 <div class="col-lg-12">
-                    <label for="weight">Weight</label>
-                    <input type="text" class="form-control" id="weight" placeholder="weight now">
+                    <label for="weight_now">Weight</label>
+                    <input type="text" class="form-control" id="weight_now" placeholder="weight now">
 
                 </div>
 
