@@ -1,19 +1,56 @@
 from flask import Flask
 from flask import render_template
-import db
+
 import sqlite3
+
 from flask import request
 
+conn = sqlite3.connect('app.db')
 app = Flask(__name__)
 
-@app.route('/list')
-def user_list():
-    conn = sqlite3.connect('new_db')
-    c=conn.cursor()
-    c.execute("SELECT * FROM info_about_users ")
-    users=list(c.fetchall())
-    conn.close()
-    return render_template('page01.html', users=users)
+
+
+def dict_factory(cursor, row):
+    d = {}
+    for idx, col in enumerate(cursor.description):
+        d[col[0]] = row[idx]
+    return d
+
+
+
+@app.route('/diet')
+def find_diet():
+    conn = sqlite3.connect('app.db')
+    conn.row_factory = dict_factory
+    c = conn.cursor()
+    c.execute("SELECT * FROM info_about_users WHERE login = 1507")
+    user_one = c.fetchone()
+
+    c.execute("SELECT * FROM diet_advice")
+    diet_advice = list(c.fetchall())
+    my_advice = []
+
+    for advice in diet_advice:
+        is_allowed = True
+        # filters
+        if user_one['vegetarian'] and advice['has_meat']:
+            is_allowed = False
+
+        if user_one['allergy_lactose'] and advice['has_lactose']:
+            is_allowed = False
+
+        if user_one['allergy_oranges'] and advice['has_oranges']:
+            is_allowed = False
+
+        if user_one['allergy_gluten'] and advice['has_gluten']:
+            is_allowed = False
+
+        if is_allowed:
+            my_advice.append(advice['info'])
+
+        conn.close()
+
+        return render_template('get_fit_diet.html', my_diet=my_advice)
 
 
 @app.route('/')
@@ -23,27 +60,26 @@ def first():
 
 @app.route('/sign_up')
 def sign_up():
-    return render_template('get_fit_registration.html')
+    return render_template('get_fit_registration.html')\
+
 
 @app.route('/personal')
 def personal():
+
     return render_template('get_fit_personal.html')
 
 
-@app.route('/diary')
-def diary():
-    return render_template('page_diary.html')
-
-@app.route('/grouppage')
-def grouppage():
-    return render_template('get_fit_grouppage.html')
 
 
-@app.route('/result')
-def search_for_person():
-    q=request.args.get('query')
-    users = db.get_users_by_name(q)
-    return render_template('page01.html', q=q, users=users)
+@app.route('/exercise')
+def exercise():
+    return render_template('get_fit_exercise.html')
+
+#@app.route('/result')
+# #def search_for_person():
+#   q=request.args.get('query')
+#  users = db.get_users_by_name(q)
+# return render_template('page01.html', q=q, users=users)
 
 
 
@@ -131,6 +167,8 @@ def new_user():
         user_created=user_created,
         error_message=error_message
     )
+
+
 
 
 
